@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultport Mid-Market Growth Strategy | EIR Case Study</title>
+    <title>Consultport Growth Strategy | EIR Case Study</title>
     <style>
         * {
             margin: 0;
@@ -11,171 +11,34 @@
             box-sizing: border-box;
         }
 
-        /* Password Protection Overlay */
-        #password-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        #password-overlay.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .password-container {
-            background: white;
-            padding: 3rem;
-            border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            max-width: 450px;
-            width: 90%;
-            text-align: center;
-            animation: slideIn 0.6s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .password-container h2 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 2rem;
-        }
-
-        .password-container h2::after {
-            display: none;
-        }
-
-        .password-subtitle {
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            font-size: 1rem;
-        }
-
-        .password-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2.5rem;
-        }
-
-        #password-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        #password-input {
-            padding: 1rem 1.5rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            outline: none;
-        }
-
-        #password-input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        #password-submit {
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        #password-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-        }
-
-        #password-submit:active {
-            transform: translateY(0);
-        }
-
-        .password-error {
-            color: #ef4444;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            display: none;
-        }
-
-        .password-error.show {
-            display: block;
-            animation: shake 0.5s ease;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
-        }
-
-        .content-wrapper {
-            display: none;
-        }
-
-        .content-wrapper.visible {
-            display: block;
-        }
-
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --secondary: #8b5cf6;
-            --accent: #06b6d4;
-            --bg-dark: #0f172a;
-            --bg-light: #f8fafc;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-            --success: #10b981;
-            --warning: #f59e0b;
+            --primary: #0066ff;
+            --secondary: #00d4ff;
+            --dark: #0a0e27;
+            --light: #f8f9fa;
+            --accent: #ff6b35;
+            --success: #00c9a7;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--dark);
+            color: var(--light);
             line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-light);
+            overflow-x: hidden;
         }
 
-        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--gradient);
             position: relative;
-            overflow: hidden;
+            padding: 2rem;
+            text-align: center;
         }
 
         .hero::before {
@@ -185,386 +48,34 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
             opacity: 0.3;
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1000px;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 800;
             margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero .subtitle {
-            font-size: 1.5rem;
-            opacity: 0.95;
+            font-size: clamp(1.2rem, 3vw, 2rem);
             margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
         }
 
-        .hero-tags {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .tag {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Navigation */
-        nav {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-dark);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: all 0.3s;
-            white-space: nowrap;
-            font-weight: 500;
-        }
-
-        .nav-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        /* Section Styles */
-        section {
-            margin-bottom: 4rem;
-            animation: fadeIn 0.6s ease;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        h3 {
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            margin: 2rem 0 1rem 0;
-        }
-
-        /* Card Styles */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-            border-color: var(--primary);
-        }
-
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .card h4 {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-dark);
-        }
-
-        .card p {
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* Stats Box */
-        .stats-box {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            margin: 2rem 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
+        .hero .meta {
             font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        /* Table Styles */
-        .comparison-table {
-            width: 100%;
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin: 2rem 0;
-        }
-
-        .comparison-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .comparison-table th {
-            background: var(--primary);
-            color: white;
-            padding: 1.2rem;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .comparison-table td {
-            padding: 1.2rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .comparison-table tr:hover {
-            background: #f8fafc;
-        }
-
-        /* Initiative Card */
-        .initiative-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin: 2rem 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border-left: 6px solid var(--primary);
-        }
-
-        .initiative-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .initiative-number {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        /* KPI Grid */
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .kpi-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-            border-top: 4px solid var(--accent);
-        }
-
-        .kpi-label {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-        }
-
-        .kpi-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-            margin: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3.5rem;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 0 0 2px var(--primary);
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--bg-dark) 0%, #1e293b 100%);
-            color: white;
-            padding: 4rem 2rem;
-            border-radius: 24px;
-            text-align: center;
-            margin: 4rem 0;
-        }
-
-        .cta-section h2 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section h2::after {
-            display: none;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: var(--primary);
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(255,255,255,0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255,255,255,0.3);
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
         }
 
         @keyframes fadeInUp {
@@ -578,805 +89,1710 @@
             }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .stats-box {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline {
-                padding-left: 2rem;
-            }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
         }
 
-        /* Highlight Box */
-        .highlight-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-left: 6px solid var(--warning);
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
             padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
-        .highlight-box h4 {
-            color: var(--text-dark);
+        .challenge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+        }
+
+        .challenge-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .challenge-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1rem;
         }
 
-        /* Success Metrics */
-        .success-metric {
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-            border-left: 6px solid var(--success);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin: 1rem 0;
+        .challenge-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
         }
 
-        .success-metric strong {
-            color: var(--success);
+        .challenge-card h4 {
             font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+            color: var(--accent);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-btn.active {
+            background: var(--gradient);
+            border-color: transparent;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .initiative-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .initiative-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .initiative-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .initiative-card h3 {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: rgba(0, 102, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .feature-item h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-table {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-cell {
+            padding: 1.5rem;
+            background: var(--dark);
+        }
+
+        .comparison-cell.header {
+            background: var(--gradient);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .pricing-tier {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-tier:hover {
+            transform: scale(1.05);
+            border-color: var(--secondary);
+        }
+
+        .pricing-tier h4 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .pitch-section {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(0, 102, 255, 0.1) 100%);
+            padding: 6rem 2rem;
+        }
+
+        .pitch-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .problem-solution {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .icon.problem {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+        }
+
+        .icon.solution {
+            background: linear-gradient(135deg, #00c9a7 0%, #00d4ff 100%);
+            font-weight: 800;
+            color: white;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient);
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-start;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item, .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 60px;
+            }
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 45%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-content {
+                width: calc(100% - 60px);
+            }
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--dark);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-marker {
+                left: 20px;
+            }
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .kpi-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .kpi-value {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 201, 167, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border-left: 4px solid var(--success);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            text-align: center;
+            padding: 3rem 2rem;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 6rem;
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .cta-section {
+            background: var(--gradient);
+            padding: 6rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--gradient);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 0.5rem;
+        }
+
+        /* Password Protection Styles */
+        #password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        #password-screen.hidden {
+            display: none;
+        }
+
+        .password-container {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .password-container h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .password-container input {
+            width: 100%;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: var(--light);
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .password-container input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .password-container button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradient);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .password-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 102, 255, 0.4);
+        }
+
+        .password-error {
+            color: var(--accent);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .password-error.show {
+            opacity: 1;
+        }
+
+        #main-content {
+            display: none;
+        }
+
+        #main-content.unlocked {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <!-- Password Protection Screen -->
-    <div id="password-overlay">
-        <div class="password-container">
-            <div class="password-icon">🔒</div>
-            <h2>Access Required</h2>
-            <p class="password-subtitle">Please enter the password to view this case study</p>
-            <form id="password-form">
-                <input 
-                    type="password" 
-                    id="password-input" 
-                    placeholder="Enter password"
-                    autocomplete="off"
-                    required
-                />
-                <button type="submit" id="password-submit">Unlock Case Study</button>
-                <p class="password-error" id="password-error">Incorrect password. Please try again.</p>
-            </form>
-        </div>
-    </div>
-
-    <!-- Main Content (Hidden until password correct) -->
-    <div class="content-wrapper" id="main-content">
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Unlocking the "Missing Middle"</h1>
-            <p class="subtitle">A Strategic Growth Roadmap for Consultport in the Mid-Market Enterprise Sector</p>
-            <div class="hero-tags">
-                <span class="tag">500-1,000 Employees</span>
-                <!-- <span class="tag">€500M+ Revenue Opportunity</span> -->
-                <span class="tag">3-Month Implementation</span>
-                <span class="tag">Private Equity Focus</span>
-            </div>
-        </div>
-    </div>
-
-    <nav>
-        <div class="nav-content">
-            <a href="#executive" class="nav-link">Executive Summary</a>
-            <a href="#challenges" class="nav-link">Market Challenges</a>
-            <a href="#initiatives" class="nav-link">Growth Initiatives</a>
-            <a href="#recommendation" class="nav-link">Primary Recommendation</a>
-            <a href="#metrics" class="nav-link">Success Metrics</a>
-            <a href="#implementation" class="nav-link">Implementation Plan</a>
-        </div>
-    </nav>
-
-    <div class="container">
-        <section id="executive">
-            <h2>Executive Summary</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-                Mid-sized corporates (500-1,000 employees) represent a critical "missing middle" in the consulting landscape. These companies face unique challenges—they're too complex for DIY solutions yet often priced out of traditional consulting firms. Consultport is uniquely positioned to capture this underserved segment through strategic initiatives that leverage its curated talent network and rapid deployment capabilities.
-            </p>
-
-            <div class="stats-box">
-                <div class="stat">
-                    <div class="stat-number">79%</div>
-                    <div class="stat-label">of CEOs cite talent gaps as a major obstacle</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">70%</div>
-                    <div class="stat-label">of projects staffed within 48 hours</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">70%</div>
-                    <div class="stat-label">cost savings vs. traditional consulting</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">33%</div>
-                    <div class="stat-label">of companies already use independent professionals</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="challenges">
-            <h2>Key Challenges & Consultport's Unique Solutions</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-                Mid-sized corporates face a unique "triple paradox" that neither traditional consulting firms nor freelance platforms can adequately solve. Here's how Consultport uniquely addresses each challenge:
-            </p>
-
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon">🎯</div>
-                    <h4>1. The "Talent Paradox"</h4>
-                    <p style="margin-bottom: 1rem;"><strong style="color: var(--primary);">The Challenge:</strong> Mid-market firms face an 81% skills shortage in critical areas like AI implementation, digital transformation, and ESG strategy. They have budget for execution but cannot afford the "partner overhead" fees that traditional consulting firms charge—often 3-5x the actual consultant's cost.</p>
-                    <p style="margin-bottom: 1rem; color: var(--text-light); font-size: 0.95rem;">Traditional firms bill junior consultants at senior rates. Freelance platforms offer low costs but lack quality assurance and executive trust. Mid-sized companies are stuck paying either too much or risking too much.</p>
-                    <div class="success-metric" style="margin-top: 1rem;">
-                        <strong>Consultport's Solution:</strong> We eliminate the "partner overhead" layer entirely. Companies access the same caliber talent (ex-McKinsey, ex-BCG, Big 4 alumni) at 40-60% lower costs by paying directly for execution, not firm infrastructure. Our rigorous vetting process provides the quality assurance that freelance platforms lack, while our curated network ensures executive-grade expertise is consistently available.
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h4>2. The "Speed to Impact" Gap</h4>
-                    <p style="margin-bottom: 1rem;"><strong style="color: var(--primary);">The Challenge:</strong> Digital transformation is accelerating faster than internal hiring cycles. The average time-to-hire for specialized roles is 3-6 months. Mid-sized firms cannot afford a 6-month vacancy on business-critical projects—by the time they hire, the market has shifted or the competitive window has closed.</p>
-                    <p style="margin-bottom: 1rem; color: var(--text-light); font-size: 0.95rem;">Traditional consulting engagements take weeks to scope and mobilize. Internal hiring is too slow. The "hiring lag" becomes a strategic liability, costing companies market share and momentum.</p>
-                    <div class="success-metric" style="margin-top: 1rem;">
-                        <strong>Consultport's Solution:</strong> We provide talent liquidity. Our pre-vetted consultant pool enables deployment within 48 hours—turning months of hiring lag into immediate project impact. Over 70% of our projects are staffed within 2 days, allowing mid-market firms to respond to opportunities and threats with the agility of much larger enterprises. This speed is a genuine competitive moat.
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">🔧</div>
-                    <h4>3. The "Implementation vs. Strategy" Disconnect</h4>
-                    <p style="margin-bottom: 1rem;"><strong style="color: var(--primary);">The Challenge:</strong> Mid-sized companies don't need another 100-page strategy deck. They need hands-on operational execution: "Fix my supply chain," "Implement this ERP system," "Build our AI data pipeline." Traditional firms over-index on strategy but under-deliver on implementation. Freelance platforms under-index on accountability and project management.</p>
-                    <p style="margin-bottom: 1rem; color: var(--text-light); font-size: 0.95rem;">The gap between "good advice" and "actual execution" is where most mid-market transformation initiatives fail. Companies are left with recommendations but no one accountable to implement them.</p>
-                    <div class="success-metric" style="margin-top: 1rem;">
-                        <strong>Consultport's Solution:</strong> We bridge the trust and execution gap through three mechanisms: (1) Dedicated account managers who ensure consultant performance and project accountability, (2) Pre-assembled "Squads" for complex implementations (not just individual contributors), and (3) Our vetting process specifically screens for "execution capability," not just strategic thinking. We de-risk the implementation phase—the #1 pain point for mid-market firms—by combining platform efficiency with professional services accountability.
-                    </div>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h4>💡 Why Existing Solutions Fail Mid-Market Companies</h4>
-                <p style="margin-bottom: 1rem;"><strong>Traditional Consulting Firms (McKinsey, BCG, Bain):</strong> Designed for Fortune 500 budgets. Their leverage model (expensive partners supervising junior teams) inflates costs by 3-5x. Engagement timelines of 3-6 months are too slow for mid-market urgency. The focus is strategy over execution.</p>
-                <p><strong>Freelance Platforms (Upwork, Fiverr, Toptal):</strong> Lack executive trust and quality vetting. High search friction forces clients to sort through hundreds of profiles. No accountability for project delivery. Designed for individual tasks, not complex organizational challenges. Race-to-bottom pricing signals questionable quality.</p>
-                <p style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #f59e0b;"><strong>Consultport's "Third Way":</strong> We occupy the strategic white space between these two extremes. Premium talent quality without premium overhead. Freelance flexibility without freelance risk. Strategic impact with execution accountability.</p>
-            </div>
-
-            <h3>Comparative Advantage Analysis</h3>
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Dimension</th>
-                            <th>Traditional Consulting</th>
-                            <th>Freelance Platforms</th>
-                            <th>Consultport's Unique Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Talent Quality</strong></td>
-                            <td>Ex-MBB/Big 4, high quality</td>
-                            <td>Highly variable, difficult to assess</td>
-                            <td><span style="color: var(--success); font-weight: 600;">✓ Ex-MBB/Big 4 talent, rigorously vetted</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cost Structure</strong></td>
-                            <td>$5K-$15K/day (partner overhead)</td>
-                            <td>$500-$2K/day (race to bottom)</td>
-                            <td><span style="color: var(--success); font-weight: 600;">✓ $2K-$5K/day (40-60% savings vs. MBB)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Speed to Deploy</strong></td>
-                            <td>4-8 weeks (scoping + contracting)</td>
-                            <td>1-2 weeks (high search friction)</td>
-                            <td><span style="color: var(--success); font-weight: 600;">✓ 48 hours (pre-vetted, ready pool)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Engagement Model</strong></td>
-                            <td>Large teams, long commitments</td>
-                            <td>Solo contributors, transactional</td>
-                            <td><span style="color: var(--success); font-weight: 600;">✓ Flexible: individuals or squads, 3-6 month sprints</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Focus</strong></td>
-                            <td>Strategy-heavy, implementation-light</td>
-                            <td>Task execution, no strategic context</td>
-                            <td><span style="color: var(--success); font-weight: 600;">✓ Implementation-first with strategic grounding</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Accountability</strong></td>
-                            <td>High (firm reputation at stake)</td>
-                            <td>Low (platform just facilitates)</td>
-                            <td><span style="color: var(--success); font-weight: 600;">✓ High (dedicated account managers + vetting)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Best For</strong></td>
-                            <td>Large enterprises, strategic transformation</td>
-                            <td>Small tasks, price-sensitive projects</td>
-                            <td><span style="color: var(--success); font-weight: 600;">✓ Mid-market: critical projects needing speed + quality</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section id="initiatives">
-            <h2>Five Strategic Growth Initiatives</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-                Based on comprehensive market analysis, we've identified five high-impact initiatives that leverage Consultport's unique assets:
-            </p>
-
-            <div class="initiative-card">
-                <div class="initiative-header">
-                    <div class="initiative-number">1</div>
-                    <h3 style="margin: 0;">Fractional Value Creation Engine (PE Partnership)</h3>
-                </div>
-                <p><strong>Target:</strong> Private Equity firms with mid-market portfolios (€500M-€2B AUM)</p>
-                <p><strong>The Concept:</strong> Position Consultport as the "on-demand operating partner bench" for PE firms. Instead of selling to individual companies, partner with PE firms to serve their entire portfolio.</p>
-                <p><strong>Why It Wins:</strong> High interest rates have killed the "financial engineering" playbook. PE firms now need operational improvements to drive returns, but mid-market firms lack internal Portfolio Operations Groups. One PE relationship opens doors to 10-20 portfolio companies.</p>
-                <div class="success-metric" style="margin-top: 1rem;">
-                    <strong>Expected Impact:</strong> €1M-€3.75M annualized GMV run-rate from 5 pilot PE firms
-                </div>
-            </div>
-
-            <div class="initiative-card">
-                <div class="initiative-header">
-                    <div class="initiative-number">2</div>
-                    <h3 style="margin: 0;">Digital Readiness Accelerator Program</h3>
-                </div>
-                <p><strong>Target:</strong> Mid-sized corporates seeking digital transformation guidance</p>
-                <p><strong>The Concept:</strong> Offer a free Digital Readiness Assessment that benchmarks companies against industry leaders, followed by a one-hour expert consultation and tailored consulting proposals.</p>
-                <p><strong>Why It Wins:</strong> Provides immediate value first, building trust before the sales pitch. The assessment creates urgency and identifies clear pain points, with consultants ready to execute solutions within days.</p>
-                <div class="success-metric" style="margin-top: 1rem;">
-                    <strong>Expected Impact:</strong> 50 assessments → 30 consultations → 15 projects = €500K in Q1 revenue
-                </div>
-            </div>
-
-            <div class="initiative-card">
-                <div class="initiative-header">
-                    <div class="initiative-number">3</div>
-                    <h3 style="margin: 0;">AI Implementation Squads</h3>
-                </div>
-                <p><strong>Target:</strong> Companies stuck in "pilot purgatory" with AI initiatives</p>
-                <p><strong>The Concept:</strong> Pre-assembled teams (Data Architect + AI Lead + Change Management Coach) that move clients from strategy to execution in data productization.</p>
-                <p><strong>Why It Wins:</strong> 91% of mid-market firms attempt AI, but 50%+ are unprepared to implement. They don't need more strategy slides—they need hands-on execution to clean data, structure databases, and configure APIs.</p>
-            </div>
-
-            <div class="initiative-card">
-                <div class="initiative-header">
-                    <div class="initiative-number">4</div>
-                    <h3 style="margin: 0;">Integration SWAT Team (Post-M&A)</h3>
-                </div>
-                <p><strong>Target:</strong> Mid-market companies undergoing mergers and acquisitions</p>
-                <p><strong>The Concept:</strong> A specialized "pop-up" Integration Management Office that manages mergers for 6-12 months then disbands, handling HR harmonization, IT systems merging, and cultural alignment.</p>
-                <p><strong>Why It Wins:</strong> 70-90% of M&A deals fail to realize intended value due to poor integration. Mid-market firms don't acquire frequently enough to justify permanent IMO teams.</p>
-            </div>
-
-            <div class="initiative-card">
-                <div class="initiative-header">
-                    <div class="initiative-number">5</div>
-                    <h3 style="margin: 0;">Strategic Content Hub for Mid-Market</h3>
-                </div>
-                <p><strong>Target:</strong> Mid-sized company decision-makers searching for solutions</p>
-                <p><strong>The Concept:</strong> Establish a "Mid-Market Insights" content hub with blogs, whitepapers, webinars, and case studies addressing specific pain points of 500-1,000 employee companies.</p>
-                <p><strong>Why It Wins:</strong> 60% of B2B buyers award business based on thought leadership content. Positions Consultport as a knowledgeable partner and drives inbound leads from executives searching for solutions.</p>
-            </div>
-        </section>
-
-        <section id="recommendation">
-            <h2>Primary Recommendation: Two-Track Approach</h2>
-            
-            <div class="highlight-box" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-left-color: var(--primary);">
-                <h4>🎯 Why Both Initiatives?</h4>
-                <p>While the documents present different primary recommendations, the optimal strategy combines both approaches for maximum market penetration:</p>
-                <ul style="margin-top: 1rem; line-height: 1.8;">
-                    <li><strong>Fractional Value Creation Engine</strong> for high-value, recurring PE relationships (enterprise sales)</li>
-                    <li><strong>Digital Readiness Accelerator</strong> for broad mid-market lead generation (product-led growth)</li>
-                </ul>
-            </div>
-
-            <h3>Track 1: Fractional Value Creation Engine (PE Focus)</h3>
-            <div class="card" style="margin: 1.5rem 0;">
-                <h4>The Strategic Logic</h4>
-                <p style="margin-bottom: 1rem;"><strong>The Aggregator Advantage:</strong> Selling to one PE Operating Partner effectively reaches 10-15 portfolio companies, dramatically reducing Customer Acquisition Cost while increasing Lifetime Value.</p>
-                
-                <p style="margin-bottom: 1rem;"><strong>The "Ex-MBB" Value Arbitrage:</strong> PE firms value McKinsey-caliber frameworks but hate paying MBB rates for implementation. Consultport delivers the same talent at a fraction of the cost by stripping out partner overhead.</p>
-                
-                <p><strong>The Execution Gap Solution:</strong> Mid-market firms cannot attract permanent C-suite talent. Fractional executives (e.g., CFO for 2 days/week at $100K vs. $300K full-time) provide immediate "adult supervision" post-acquisition.</p>
-            </div>
-
-            <div class="card-grid">
-                <div class="card">
-                    <h4>Core Offering</h4>
-                    <p><strong>"100-Day Sprint Team"</strong> - Standardized pods for common PE needs:</p>
-                    <ul style="margin-top: 0.5rem; line-height: 1.8;">
-                        <li>Pricing Overhaul (immediate EBITDA impact)</li>
-                        <li>Cash Flow Optimization (working capital improvement)</li>
-                        <li>Digital Triage (fixing tech debt to enable scale)</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4>Target Profile</h4>
-                    <ul style="line-height: 1.8;">
-                        <li>Mid-market PE firms (€500M-€2B AUM)</li>
-                        <li>Operating Partners or Portfolio Operations heads</li>
-                        <li>Focus: DACH region (high Mittelstand density)</li>
-                        <li>50 target firms identified for pilot</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 3rem;">Track 2: Digital Readiness Accelerator (Broad Mid-Market)</h3>
-            <div class="card" style="margin: 1.5rem 0;">
-                <h4>The Customer Journey</h4>
-                <p style="margin-bottom: 1rem;"><strong>Step 1 - Assessment:</strong> Companies complete a free 15-minute Digital Readiness Assessment benchmarking their processes, technology, and skills against industry leaders.</p>
-                
-                <p style="margin-bottom: 1rem;"><strong>Step 2 - Report:</strong> Receive a personalized report highlighting gaps and recommendations, creating urgency and demonstrating expertise.</p>
-                
-                <p><strong>Step 3 - Consultation:</strong> Free 1-hour expert consultation to discuss findings and propose actionable solutions, naturally transitioning to paid engagement.</p>
-            </div>
-
-            <div class="success-metric">
-                <strong>The Reciprocity Effect:</strong> Companies that benefit from the free assessment are significantly more inclined to trust and invest in Consultport's services, boosting lead-to-project conversion rates.
-            </div>
-
-            <div class="card-grid" style="margin-top: 2rem;">
-                <div class="card">
-                    <h4>Unique Advantages</h4>
-                    <ul style="line-height: 1.8;">
-                        <li>Existing Digital Readiness Tool as lead magnet</li>
-                        <li>48-hour deployment capability</li>
-                        <li>Consultative sales approach (insight-driven)</li>
-                        <li>Scalable via LinkedIn ads & webinars</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4>Multi-Channel Promotion</h4>
-                    <ul style="line-height: 1.8;">
-                        <li>Targeted LinkedIn ads to C-suite executives</li>
-                        <li>Partnerships with industry associations</li>
-                        <li>Webinars on digital transformation</li>
-                        <li>Direct outreach to target companies</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="metrics">
-            <h2>Success Metrics & KPIs</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-                A rigorous measurement framework ensures both initiatives deliver sustainable, high-value growth:
-            </p>
-
-            <h3>Track 1: PE Value Creation Engine - Primary KPIs</h3>
-            <div class="kpi-grid">
-                <div class="kpi-card">
-                    <div class="kpi-label">Gross Merchandise Value (PE Channel)</div>
-                    <div class="kpi-value">€500K</div>
-                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Total consulting contract value in 3-month pilot</p>
-                </div>
-                <div class="kpi-card" style="border-top-color: var(--secondary);">
-                    <div class="kpi-label">Match Rate (48h)</div>
-                    <div class="kpi-value">>85%</div>
-                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">PE project requests filled within 48 hours</p>
-                </div>
-                <div class="kpi-card" style="border-top-color: var(--success);">
-                    <div class="kpi-label">Portfolio Penetration Rate</div>
-                    <div class="kpi-value">1.5→3</div>
-                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Portfolio companies served per PE firm</p>
-                </div>
-                <div class="kpi-card" style="border-top-color: var(--warning);">
-                    <div class="kpi-label">Average Contract Value</div>
-                    <div class="kpi-value">€40K+</div>
-                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Per engagement (strategic vs. operational)</p>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 2rem;">Track 2: Digital Readiness - Primary KPIs</h3>
-            <div class="kpi-grid">
-                <div class="kpi-card">
-                    <div class="kpi-label">Assessments Completed</div>
-                    <div class="kpi-value">50</div>
-                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Companies in 3 months (initial engagement)</p>
-                </div>
-                <div class="kpi-card" style="border-top-color: var(--secondary);">
-                    <div class="kpi-label">Assessment → Consultation</div>
-                    <div class="kpi-value">60%</div>
-                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Conversion rate (~30 consultations)</p>
-                </div>
-                <div class="kpi-card" style="border-top-color: var(--success);">
-                    <div class="kpi-label">Consultation → Project</div>
-                    <div class="kpi-value">50%</div>
-                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Win rate (~15 new projects)</p>
-                </div>
-                <div class="kpi-card" style="border-top-color: var(--warning);">
-                    <div class="kpi-label">Revenue Generated</div>
-                    <div class="kpi-value">€500K</div>
-                    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Project value within quarter</p>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 2rem;">Secondary KPIs (Operational Health)</h3>
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Metric</th>
-                            <th>Target</th>
-                            <th>Rationale</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Consultant Utilization Rate</strong></td>
-                            <td>>60%</td>
-                            <td>Ensures adequate supply for specialized demand</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Net Promoter Score (NPS)</strong></td>
-                            <td>>70</td>
-                            <td>High trust essential for PE repeat usage</td>
-                        </tr>
-                        <tr>
-                            <td><strong>CAC:LTV Ratio</strong></td>
-                            <td>>1:5</td>
-                            <td>PE aggregator model drives higher leverage</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Time to Project Start</strong></td>
-                            <td><3 weeks</td>
-                            <td>From assessment to project kickoff</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Pipeline Coverage Ratio</strong></td>
-                            <td>4:1</td>
-                            <td>Active opportunities vs. revenue target</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="highlight-box" style="margin-top: 2rem;">
-                <h4>📊 Tracking Infrastructure</h4>
-                <p><strong>CRM Hierarchy:</strong> Parent-Child account structure (PE Firm → Portfolio Companies) for accurate revenue attribution</p>
-                <p><strong>Weekly Dashboard:</strong> Real-time view of talent pool liquidity and consultant availability by specialty/region</p>
-                <p><strong>Sprint Reviews:</strong> Mandatory feedback at 10-day mark (early warning system) to maintain PE trust</p>
-            </div>
-        </section>
-
-        <section id="implementation">
-            <h2>3-Month Implementation Plan</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-                A phased, parallel execution approach for both tracks ensures rapid validation and market penetration:
-            </p>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-title">Month 1: Foundation & Setup</div>
-                    <div class="timeline-content">
-                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Track 1 - PE Engine</h4>
-                        <ul style="line-height: 1.8; margin-bottom: 1.5rem;">
-                            <li><strong>Supply Audit:</strong> Mine existing 10K+ consultant database to identify top 5% with PE/Value Creation/Interim C-Level experience. Tag as "PE-Certified"</li>
-                            <li><strong>Product Packaging:</strong> Create one-pagers for three standardized packages: Commercial Due Diligence, Interim CFO, Tech Stack Audit</li>
-                            <li><strong>Target List:</strong> Identify 50 mid-market PE firms (€500M-€2B AUM) in DACH/Europe. Map Operating Partners via LinkedIn</li>
-                        </ul>
-
-                        <h4 style="color: var(--secondary); margin-bottom: 1rem;">Track 2 - Digital Readiness</h4>
-                        <ul style="line-height: 1.8;">
-                            <li><strong>Landing Page:</strong> Develop dedicated page for Digital Readiness Assessment with testimonials and clear value proposition</li>
-                            <li><strong>Team Training:</strong> Brief sales and account managers on workflow. Onboard top consultants for 1-hour consultation calls</li>
-                            <li><strong>Outreach Prep:</strong> Build target list of 500-1,000 employee companies across focus industries and regions</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-title">Month 2: Launch & Acquisition</div>
-                    <div class="timeline-content">
-                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Track 1 - PE Engine</h4>
-                        <ul style="line-height: 1.8; margin-bottom: 1.5rem;">
-                            <li><strong>Direct Sales Sprint:</strong> Execute Account-Based Marketing to Operating Partners with provocative pitch: "Stop overpaying Bain for implementation"</li>
-                            <li><strong>"Shadow Bench" Offer:</strong> Free custom bench for PE firm's top 3 struggling portfolio companies (Trojan Horse tactic)</li>
-                            <li><strong>Partnership Webinars:</strong> Closed-door roundtable on "Operational Value Creation in 2025" with PE veteran guest speaker</li>
-                        </ul>
-
-                        <h4 style="color: var(--secondary); margin-bottom: 1rem;">Track 2 - Digital Readiness</h4>
-                        <ul style="line-height: 1.8;">
-                            <li><strong>Campaign Launch:</strong> Personalized emails + LinkedIn ads targeting mid-sized executives. Press release/blog announcement</li>
-                            <li><strong>Webinar Event:</strong> "Digital Transformation for Mid-Sized Businesses" with aggregated findings and success stories</li>
-                            <li><strong>Lead Management:</strong> Automated thank-you emails + Calendly links. Personal outreach within 24 hours to high-potential leads</li>
-                            <li><strong>Real-Time Monitoring:</strong> Track completion rates, adjust messaging/survey length based on feedback</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-title">Month 3: Optimization & Scale</div>
-                    <div class="timeline-content">
-                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Track 1 - PE Engine</h4>
-                        <ul style="line-height: 1.8; margin-bottom: 1.5rem;">
-                            <li><strong>Concierge Onboarding:</strong> EIR acts as Engagement Manager for first 5 PE projects (white-glove service)</li>
-                            <li><strong>Case Study Velocity:</strong> Draft quantitative case studies immediately upon project success (e.g., "Reduced 100-day execution by 30%")</li>
-                            <li><strong>Feedback Loop:</strong> Structured interviews with Operating Partners to refine vetting criteria and product packaging</li>
-                        </ul>
-
-                        <h4 style="color: var(--secondary); margin-bottom: 1rem;">Track 2 - Digital Readiness</h4>
-                        <ul style="line-height: 1.8;">
-                            <li><strong>Conversion Optimization:</strong> Analyze consultation-to-project conversion. Refine consultant approach with mini "action plan" templates</li>
-                            <li><strong>Scale Winning Tactics:</strong> Reallocate budget to highest-performing channels/regions. Amplify resonant content (case studies)</li>
-                            <li><strong>Lead Nurturing:</strong> Follow-up email series for non-converters. Offer small pilot projects as low-risk entry point</li>
-                            <li><strong>Final Evaluation:</strong> Full KPI report to founders with recommendations for Q2 expansion</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="highlight-box" style="margin-top: 3rem;">
-                <h4>🎯 Critical Success Factors</h4>
-                <ul style="line-height: 1.8; margin-top: 1rem;">
-                    <li><strong>Speed of Execution:</strong> Weekly pipeline reviews ensure no leads fall through cracks</li>
-                    <li><strong>Quality Control:</strong> 10-day sprint reviews for PE projects maintain trust and allow rapid consultant replacement if needed</li>
-                    <li><strong>Data-Driven Iteration:</strong> Real-time dashboard monitoring enables rapid tactical adjustments</li>
-                    <li><strong>Cross-Track Synergy:</strong> PE firms can refer portfolio companies to Digital Readiness program; assessment leads may have PE backers</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Strategic Rationale: Why This Wins</h2>
-            
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon">💰</div>
-                    <h4>Market Timing</h4>
-                    <p>High interest rates killed PE financial engineering. Operational improvement is now the only path to returns. Mid-market firms face talent squeeze and digital stagnation simultaneously.</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">🎪</div>
-                    <h4>The "Ex-MBB" Arbitrage</h4>
-                    <p>Consultport sells McKinsey-caliber talent without partner overhead. PE firms get the frameworks they love at prices that don't dilute returns. Mid-market companies access talent previously out of reach.</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h4>Speed as Moat</h4>
-                    <p>48-hour deployment beats traditional firms by weeks. In volatile environments, this speed is a proxy for value. PE 100-day plans and digital transformations require immediate action.</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">🔄</div>
-                    <h4>Aggregator Economics</h4>
-                    <p>One PE relationship = 10-15 portfolio companies. This dramatically lowers CAC while increasing LTV. The Digital Readiness program scales via content marketing and automation.</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">🛡️</div>
-                    <h4>De-Risked Quality</h4>
-                    <p>Rigorous vetting + platform guarantee replaces brand insurance of traditional firms. "Shadow Bench" tactic lets clients see talent before committing, removing adoption friction.</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">🎯</div>
-                    <h4>Squad Differentiation</h4>
-                    <p>Pre-assembled teams (not just individuals) solve complex, cross-functional challenges. Mimics traditional firm delivery model with marketplace economics and flexibility.</p>
-                </div>
-            </div>
-
-            <div class="success-metric" style="margin-top: 2rem; font-size: 1.1rem;">
-                <strong>Combined Impact:</strong> The two-track approach targets €1M+ in new revenue within 3 months, with clear paths to €5M+ annualized run-rate as initiatives scale. More importantly, it positions Consultport as the strategic partner of choice for the entire mid-market segment.
-            </div>
-        </section>
-
-        <section>
-            <h2>Risk Mitigation & Contingencies</h2>
-            
-            <div class="card-grid">
-                <div class="card">
-                    <h4>Risk: PE Firms Don't Engage</h4>
-                    <p><strong>Mitigation:</strong> Start with existing PE relationships in Consultport network. Leverage warm introductions from satisfied portfolio company clients. "Shadow Bench" offer requires zero commitment.</p>
-                </div>
-
-                <div class="card">
-                    <h4>Risk: Low Assessment Completion</h4>
-                    <p><strong>Mitigation:</strong> A/B test survey length (target 10-15 min). Offer incentive (free industry benchmark report). Use progressive profiling to reduce upfront friction.</p>
-                </div>
-
-                <div class="card">
-                    <h4>Risk: Consultant Supply Constraints</h4>
-                    <p><strong>Mitigation:</strong> Weekly liquidity dashboard identifies gaps early. Proactive recruitment in high-demand specialties. Build waitlist for popular consultants.</p>
-                </div>
-
-                <div class="card">
-                    <h4>Risk: Poor Conversion Rates</h4>
-                    <p><strong>Mitigation:</strong> 10-day project check-ins allow rapid consultant replacement. Consultation call templates ensure consistent quality. Limited-time offers for fence-sitters.</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="cta-section">
-            <h2>Ready to Unlock the Missing Middle</h2>
-            <p>This dual-track strategy positions Consultport to capture the €5M+ opportunity in the underserved mid-market segment while building sustainable competitive advantages through PE partnerships and product-led growth.</p>
-            <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.8;">Prepared by: Theo Sayad, EIR Candidate | Strategic Growth Initiative | November 2025</p>
-        </div>
-
-        <section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
-            <h2>Appendix: Supporting Analysis</h2>
-            
-            <h3>Market Size & Opportunity</h3>
-            <div class="card">
-                <p><strong>Mid-Market Universe:</strong> Companies with 500-1,000 employees represent the "Missing Middle" - too complex for DIY solutions, yet underserved by traditional consulting.</p>
-                <p style="margin-top: 1rem;"><strong>European Focus:</strong> DACH region Mittelstand companies are particularly receptive (higher freelancer adoption than France/Spain). Germany alone represents dense opportunity cluster.</p>
-                <p style="margin-top: 1rem;"><strong>PE Portfolio Reach:</strong> ~50 target PE firms × 10-15 portfolio companies = 500-750 potential clients through aggregator model.</p>
-            </div>
-
-            <h3>Competitive Positioning</h3>
-            <div class="card" style="margin-top: 1.5rem;">
-                <p><strong>vs. Traditional Firms (MBB/Big 4):</strong> 70% cost savings, weeks faster deployment, senior execution vs. junior teams</p>
-                <p style="margin-top: 1rem;"><strong>vs. Freelance Platforms (Upwork/Fiverr):</strong> Executive-grade trust, pre-vetted quality, team assembly capability</p>
-                <p style="margin-top: 1rem;"><strong>vs. Emerging Competitors (Talmix, Malt Strategy):</strong> "Solution structuring" not just matchmaking, PE-specific value creation focus, dual-track market approach</p>
-            </div>
-
-            <h3>Financial Projections (Indicative)</h3>
-            <div class="comparison-table" style="margin-top: 1.5rem;">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Initiative</th>
-                            <th>3-Month Target</th>
-                            <th>12-Month Projection</th>
-                            <th>Key Assumptions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>PE Value Creation</strong></td>
-                            <td>€500K GMV</td>
-                            <td>€1-3.75M run-rate</td>
-                            <td>5 PE firms, 1.5 portfolio penetration, €40K avg project</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Digital Readiness</strong></td>
-                            <td>€500K revenue</td>
-                            <td>€2M+ run-rate</td>
-                            <td>50 assessments/quarter, 60% → 50% conversion, €30-50K projects</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Combined Total</strong></td>
-                            <td>€1M</td>
-                            <td>€3-5.75M</td>
-                            <td>Plus secondary initiative revenue (AI Squads, M&A SWAT)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </div>
-
-    <footer style="background: var(--bg-dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h3 style="margin-bottom: 1rem;">About This Analysis</h3>
-            <p style="opacity: 0.9; line-height: 1.8;">
-                This comprehensive growth strategy synthesizes market research, competitive analysis, and strategic frameworks to position Consultport for rapid expansion in the mid-market enterprise segment. The dual-track approach balances high-value PE partnerships with scalable product-led growth, creating multiple paths to the €5M+ revenue opportunity.
-            </p>
-            <p style="margin-top: 2rem; opacity: 0.7; font-size: 0.9rem;">
-                Prepared as part of EIR internship application | Theo Sayad | November 2025
-            </p>
-        </div>
-    </footer>
-    </div>
-    <!-- End of Main Content -->
-
     <script>
-        // Password Protection
-        const PASSWORD = 'plshireme'; // Change this to your desired password
-        const overlay = document.getElementById('password-overlay');
-        const mainContent = document.getElementById('main-content');
-        const passwordForm = document.getElementById('password-form');
-        const passwordInput = document.getElementById('password-input');
-        const passwordError = document.getElementById('password-error');
-
-        // Check if already authenticated (stored in session)
-        if (sessionStorage.getItem('authenticated') === 'true') {
-            showContent();
-        }
-
-        passwordForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const enteredPassword = passwordInput.value;
-
-            if (enteredPassword === PASSWORD) {
-                // Correct password
-                sessionStorage.setItem('authenticated', 'true');
-                showContent();
-            } else {
-                // Wrong password
-                passwordError.classList.add('show');
-                passwordInput.value = '';
-                passwordInput.style.borderColor = '#ef4444';
-                
-                setTimeout(() => {
-                    passwordError.classList.remove('show');
-                    passwordInput.style.borderColor = '#e2e8f0';
-                }, 3000);
+        // Check authentication status on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const isAuthenticated = sessionStorage.getItem('authenticated');
+            if (isAuthenticated === 'true') {
+                document.getElementById('password-screen').classList.add('hidden');
+                document.getElementById('main-content').classList.add('unlocked');
             }
         });
 
-        function showContent() {
-            overlay.classList.add('hidden');
-            setTimeout(() => {
-                mainContent.classList.add('visible');
-            }, 500);
+        // Define password function FIRST, before any HTML that uses it
+        function checkPassword() {
+            const input = document.getElementById('password-input');
+            const error = document.getElementById('password-error');
+            const passwordScreen = document.getElementById('password-screen');
+            const mainContent = document.getElementById('main-content');
+            
+            if (input.value === 'plshireme') {
+                passwordScreen.classList.add('hidden');
+                mainContent.classList.add('unlocked');
+                sessionStorage.setItem('authenticated', 'true');
+            } else {
+                error.classList.add('show');
+                input.value = '';
+                setTimeout(() => {
+                    error.classList.remove('show');
+                }, 3000);
+            }
         }
 
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections and cards
-        document.querySelectorAll('section, .card, .timeline-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Add active state to nav links on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.style.background = '';
-                link.style.color = '';
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.style.background = 'var(--primary)';
-                    link.style.color = 'white';
-                }
-            });
+        // Allow Enter key to submit password
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password-input');
+            if (passwordInput) {
+                passwordInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        checkPassword();
+                    }
+                });
+            }
         });
     </script>
+
+    <!-- Password Protection Screen -->
+    <div id="password-screen">
+        <div class="password-container">
+            <h2>🔒 Protected Content</h2>
+            <p style="opacity: 0.8; margin-bottom: 1rem;">Enter password to view the case study</p>
+            <input type="password" id="password-input" placeholder="Enter password" autocomplete="off">
+            <button onclick="checkPassword()">Unlock</button>
+            <div class="password-error" id="password-error">Incorrect password. Please try again.</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Consultport Growth Strategy</h1>
+            <p class="subtitle">Capturing the Mid-Sized Corporate Segment</p>
+            <p class="meta">A Strategic Framework for Democratizing Elite Consulting Expertise</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="30" height="50" viewBox="0 0 30 50">
+                <rect x="5" y="5" width="20" height="35" rx="10" fill="none" stroke="white" stroke-width="2"/>
+                <circle cx="15" cy="15" r="3" fill="white">
+                    <animate attributeName="cy" values="15;25;15" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Challenges Section -->
+    <section id="challenges">
+        <div class="section-header scroll-fade">
+            <h2>The Mid-Market Challenge</h2>
+            <p>Understanding the critical pain points of companies with 500-1,000 employees</p>
+        </div>
+
+        <div class="challenges-grid">
+            <div class="challenge-card scroll-fade">
+                <div class="challenge-number">01</div>
+                <h3>The "Access Gap" to Top-Tier Expertise</h3>
+                <h4>Challenge:</h4>
+                <p>Mid-sized firms struggle to access premium consulting expertise. They lack budget for Big 3 (MBB) firm overheads, yet boutique firms feel risky or lack specific niche capabilities.</p>
+                <h4>Consultport Solution:</h4>
+                <p><strong>Democratized Access to Elite Talent.</strong> Consultport aggregates the best freelance management consultants, providing ex-MBB and top-tier expertise without massive agency premiums. This unlocks a talent pool previously reserved for large enterprises at accessible price points.</p>
+            </div>
+
+            <div class="challenge-card scroll-fade">
+                <div class="challenge-number">02</div>
+                <h3>Inability to Scale Teams Quickly</h3>
+                <h4>Challenge:</h4>
+                <p>When strategic projects or transformations arise, internal HR is too slow. Hiring specialized full-time talent takes months, causing missed opportunities.</p>
+                <h4>Consultport Solution:</h4>
+                <p><strong>Speed and Platform Efficiency.</strong> Consultport's platform model enables booking "faster than ever before" - reducing sourcing friction from 6-8 weeks to days, allowing companies to scale project teams dynamically to match immediate demands.</p>
+            </div>
+
+            <div class="challenge-card scroll-fade">
+                <div class="challenge-number">03</div>
+                <h3>The "Generalist" Internal Resource Trap</h3>
+                <h4>Challenge:</h4>
+                <p>Lean internal teams at this size are forced to tackle complex specialized projects (digital transformation, M&A integration), leading to burnout and distraction from core operations.</p>
+                <h4>Consultport Solution:</h4>
+                <p><strong>Flexible, Specialized Skill Injection.</strong> Consultport offers flexible consulting services - companies can inject specific subject-matter experts (e.g., Digital Transformation Lead) solely for project duration, without overburdening generalist managers.</p>
+            </div>
+
+            <div class="challenge-card scroll-fade">
+                <div class="challenge-number">04</div>
+                <h3>Vetting and Trust Risk</h3>
+                <h4>Challenge:</h4>
+                <p>Mid-sized firms lack sophisticated procurement to verify independent contractor quality, making freelance markets feel like a gamble with high stakes.</p>
+                <h4>Consultport Solution:</h4>
+                <p><strong>Curated Quality Assurance.</strong> Consultport acts as the trust layer, handling vetting and evaluation. Positioning as "the best consultants" provides de-risked engagements through platform quality assurance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth Initiatives Section -->
+    <section id="initiatives">
+        <div class="section-header scroll-fade">
+            <h2>Growth Initiatives</h2>
+            <p>Three revolutionary approaches to capturing the mid-market segment</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('pe-playbooks')">PE Value Creation Playbooks</button>
+            <button class="tab-btn" onclick="switchTab('sprints')">Consultport Sprints</button>
+            <button class="tab-btn" onclick="switchTab('subscription')">Consulting-as-a-Service</button>
+        </div>
+
+        <!-- PE Playbooks Tab -->
+        <div id="pe-playbooks" class="tab-content active">
+            <div class="initiative-card scroll-fade">
+                <div class="initiative-header">
+                    <div class="initiative-icon">🎯</div>
+                    <div>
+                        <span class="badge">INITIATIVE 1</span>
+                        <h3>PE Value Creation Playbooks</h3>
+                        <p style="opacity: 0.8;">Systematized Consulting Squads for Private Equity</p>
+                    </div>
+                </div>
+
+                <div class="problem-solution">
+                    <div class="box">
+                        <h3><span class="icon problem">⚠️</span> The Problem</h3>
+                        <p>When PE firms acquire mid-sized companies, they follow a broken process:</p>
+                        <ul>
+                            <li>Weeks 1-4: Operating partners conduct assessments</li>
+                            <li>Weeks 5-8: Scramble to find consultants</li>
+                            <li>Weeks 9-12: Onboard consultants, get them up to speed</li>
+                            <li>Week 13+: Actual value creation work begins</li>
+                        </ul>
+                        <div class="highlight-box" style="margin-top: 1rem;">
+                            <strong>Result:</strong> 3 months wasted, momentum lost, deal thesis at risk. By the time consultants are productive, low-hanging fruit has rotted and organizational resistance has hardened.
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h3><span class="icon solution">✓</span> The Solution</h3>
+                        <p>PE firms get instant access to pre-assembled, specialized consulting teams that deploy within <strong>48 hours</strong> of acquisition close with battle-tested playbooks for specific value creation scenarios.</p>
+                        <p style="margin-top: 1rem;">Each squad is composed of pre-vetted elite consultants (ex-MBB, ex-Big 4, operators with 15+ years) who execute proprietary 100-day transformation playbooks tailored to the most common PE value creation priorities.</p>
+                        <p style="margin-top: 1rem;">Rather than the traditional scramble to find consultants after identifying problems, portfolio companies get immediate-deploy specialist teams from Day 1, ensuring momentum is captured and low-hanging fruit is seized before organizational resistance hardens.</p>
+                        <div class="highlight-box" style="margin-top: 1rem; background: linear-gradient(135deg, rgba(0, 201, 167, 0.2) 0%, rgba(0, 212, 255, 0.2) 100%);">
+                            <strong>Impact:</strong> Work starts Day 1, eliminating 3 months of wasted time = <strong>25% faster ROI</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 style="font-size: 1.8rem; margin: 3rem 0 2rem 0; text-align: center; color: var(--secondary);">The Four Core Squads</h4>
+                
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>📈 Revenue Acceleration Team</h4>
+                        <p><strong>Focus:</strong> Fixing weak sales execution in high-potential companies</p>
+                        <p><strong>Team:</strong> VP Sales consultant, Sales Ops specialist, Coach</p>
+                        <p><strong>Action:</strong> Audit pipeline, design new methodology, train team, hire permanent sales leader</p>
+                        <p style="margin-top: 1rem; font-size: 1.5rem; font-weight: 600; color: var(--accent);">€65K</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>⚙️ Operational Excellence Unit</h4>
+                        <p><strong>Focus:</strong> Resolving margin compression or capacity constraints</p>
+                        <p><strong>Team:</strong> Operations Director, Process Engineer, Cost Accountant</p>
+                        <p><strong>Action:</strong> Value stream mapping, waste reduction, supplier optimization</p>
+                        <p style="margin-top: 1rem; font-size: 1.5rem; font-weight: 600; color: var(--accent);">€75K</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>💻 Digital Transformation Strike Team</h4>
+                        <p><strong>Focus:</strong> Rapid technology uplift for traditional businesses</p>
+                        <p><strong>Team:</strong> Digital Lead, Technical Architect, Change Manager</p>
+                        <p><strong>Action:</strong> Tech audit, prioritization roadmap, vendor selection</p>
+                        <p style="margin-top: 1rem; font-size: 1.5rem; font-weight: 600; color: var(--accent);">€70K</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>💰 Cash & Margin Optimization Unit</h4>
+                        <p><strong>Focus:</strong> Stabilizing companies bleeding cash</p>
+                        <p><strong>Team:</strong> Interim CFO, Working Capital expert, FP&A specialist</p>
+                        <p><strong>Action:</strong> Cash flow triage, zero-based budgeting, CFO hiring</p>
+                        <p style="margin-top: 1rem; font-size: 1.5rem; font-weight: 600; color: var(--accent);">€80K</p>
+                    </div>
+                </div>
+
+                <div class="comparison-table" style="margin-top: 3rem;">
+                    <div class="comparison-row">
+                        <div class="comparison-cell header"></div>
+                        <div class="comparison-cell header">Traditional PE Consulting</div>
+                        <div class="comparison-cell header">Consultport Squads</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell"><strong>Time to Start</strong></div>
+                        <div class="comparison-cell">12-16 weeks</div>
+                        <div class="comparison-cell" style="color: var(--success); font-weight: 600;">Day 1 (48 hours)</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell"><strong>Quality</strong></div>
+                        <div class="comparison-cell">Hope we found good consultant</div>
+                        <div class="comparison-cell" style="color: var(--success); font-weight: 600;">Pre-vetted teams, proven playbooks</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell"><strong>Cost Structure</strong></div>
+                        <div class="comparison-cell">Premium rates, wasted discovery</div>
+                        <div class="comparison-cell" style="color: var(--success); font-weight: 600;">Fixed prices, 30-40% savings</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-cell"><strong>Repeatability</strong></div>
+                        <div class="comparison-cell">Custom search each time</div>
+                        <div class="comparison-cell" style="color: var(--success); font-weight: 600;">Scale across 10-20 companies</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 3rem;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">🚀 Example: Revenue Acceleration Squad in Action</h4>
+                    <p><strong>Scenario:</strong> PE firm acquires "TechFlow," a €15M B2B SaaS company converting at 12% (industry avg: 22%).</p>
+                    <p><strong>Deployment:</strong> Squad deploys on Day 1. Over 100 days: audit sales process, design new methodology, train team, shadow calls, hire VP Sales.</p>
+                    <p><strong>Result:</strong> Conversion hits 19%, permanent VP Sales hired, revenue run-rate projected at €17M. Investment: €65K, Impact: €2M+ annual revenue increase.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sprints Tab -->
+        <div id="sprints" class="tab-content">
+            <div class="initiative-card scroll-fade">
+                <div class="initiative-header">
+                    <div class="initiative-icon">⚡</div>
+                    <div>
+                        <span class="badge">INITIATIVE 2</span>
+                        <h3>Consultport Sprints</h3>
+                        <p style="opacity: 0.8;">Productized Consulting Packages - Low-Risk Entry Points</p>
+                    </div>
+                </div>
+
+                <div class="problem-solution">
+                    <div class="box">
+                        <h3><span class="icon problem">⚠️</span> The Problem</h3>
+                        <p>Mid-sized companies fear the "blank check" nature of traditional consulting:</p>
+                        <ul>
+                            <li>Fear paying huge sums for PowerPoint slides</li>
+                            <li>Burned by expensive projects with no results</li>
+                            <li>Psychological barrier: unclear scope, unknown timeline, unpredictable outcomes</li>
+                            <li>Decision paralysis causes delays until problems become crises</li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        <h3><span class="icon solution">✓</span> The Solution</h3>
+                        <p>Fixed-price, fixed-scope, time-bound consulting "sprints" that provide three things mid-market companies desperately need:</p>
+                        <ul>
+                            <li><strong>Price certainty:</strong> Fixed price, no surprises</li>
+                            <li><strong>Time certainty:</strong> Fixed timeline (2-3 weeks)</li>
+                            <li><strong>Outcome certainty:</strong> Defined deliverables</li>
+                        </ul>
+                        <p style="margin-top: 1rem;">These productized packages solve specific, common problems and serve as "trojan horses" that build trust and convert to larger projects. Each sprint is designed as a low-risk entry point that showcases Consultport's elite talent quality while removing the psychological barriers that paralyze mid-market decision-making.</p>
+                        <p style="margin-top: 1rem;">The sprint model transforms the sales conversation from defending consulting ROI to offering a "test drive" of elite expertise—companies can experience the value before making larger commitments.</p>
+                    </div>
+                </div>
+
+                <h4 style="font-size: 1.8rem; margin: 3rem 0 2rem 0; text-align: center; color: var(--secondary);">The Three Core Sprints</h4>
+
+                <div class="feature-grid">
+                    <div class="pricing-tier">
+                        <h4>🔍 Digital Readiness Assessment</h4>
+                        <p style="margin: 1rem 0;"><strong>Focus:</strong> Identify digital gaps and prioritize tech investments</p>
+                        <p><strong>Deliverables:</strong> Tech stack audit, digital maturity scorecard, prioritized roadmap with ROI estimates</p>
+                        <div class="price">€12K</div>
+                        <p style="opacity: 0.8;">2 Weeks</p>
+                    </div>
+
+                    <div class="pricing-tier">
+                        <h4>⚙️ Operational Efficiency Quick Wins</h4>
+                        <p style="margin: 1rem 0;"><strong>Focus:</strong> Immediate cost reduction for margin pressure</p>
+                        <p><strong>Deliverables:</strong> Process mapping, 10-15 efficiency opportunities, 90-day implementation plan</p>
+                        <div class="price">€18K</div>
+                        <p style="opacity: 0.8;">3 Weeks</p>
+                    </div>
+
+                    <div class="pricing-tier">
+                        <h4>🎯 Go-to-Market Strategy Sprint</h4>
+                        <p style="margin: 1rem 0;"><strong>Focus:</strong> Expert validation for new market entries</p>
+                        <p><strong>Deliverables:</strong> Market/competitor analysis, customer segmentation, 90-day launch plan</p>
+                        <div class="price">€15K</div>
+                        <p style="opacity: 0.8;">2 Weeks</p>
+                    </div>
+                </div>
+
+                <h4 style="font-size: 1.8rem; margin: 3rem 0 2rem 0; text-align: center; color: var(--secondary);">The Conversion Funnel</h4>
+
+                <div style="background: rgba(255, 255, 255, 0.05); padding: 3rem; border-radius: 20px; text-align: center;">
+                    <div style="margin-bottom: 2rem;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📣 Awareness</div>
+                        <p style="opacity: 0.8;">LinkedIn ads, webinars, PE referrals</p>
+                    </div>
+                    <div style="font-size: 2rem; margin: 1rem 0;">↓</div>
+                    <div style="margin-bottom: 2rem;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎯 Sprint Purchase</div>
+                        <p style="opacity: 0.8;">2-3 weeks, €12-18K - Low commitment, easy approval</p>
+                    </div>
+                    <div style="font-size: 2rem; margin: 1rem 0;">↓</div>
+                    <div style="margin-bottom: 2rem;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🤝 Trust Building</div>
+                        <p style="opacity: 0.8;">Defined deliverables prove quality, create tangible value</p>
+                    </div>
+                    <div style="font-size: 2rem; margin: 1rem 0;">↓</div>
+                    <div style="margin-bottom: 2rem;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💰 Project Conversion</div>
+                        <p style="opacity: 0.8;"><strong>40% convert within 90 days</strong>, €45-65K average</p>
+                    </div>
+                    <div style="font-size: 2rem; margin: 1rem 0;">↓</div>
+                    <div>
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔄 Long-term Client</div>
+                        <p style="opacity: 0.8;">Repeat engagements, referrals</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 3rem;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">📊 Example: From Audit to Action</h4>
+                    <p><strong>Scenario:</strong> "Müller GmbH" (Industrial Equipment) worried about digital obsolescence initiates Digital Readiness Sprint.</p>
+                    <p><strong>Insight:</strong> Consultant discovers quote-to-order process takes 14 days (vs. 3 industry avg), costing €800K in potential revenue.</p>
+                    <p><strong>Upsell:</strong> Müller immediately converts €12K sprint into €55K process automation project to implement the roadmap.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subscription Tab -->
+        <div id="subscription" class="tab-content">
+            <div class="initiative-card scroll-fade">
+                <div class="initiative-header">
+                    <div class="initiative-icon">🔄</div>
+                    <div>
+                        <span class="badge">INITIATIVE 3</span>
+                        <h3>Consulting-as-a-Service Subscription</h3>
+                        <p style="opacity: 0.8;">Predictable Access to On-Demand Expertise</p>
+                    </div>
+                </div>
+
+                <div class="problem-solution">
+                    <div class="box">
+                        <h3><span class="icon problem">⚠️</span> The Problem</h3>
+                        <p>Mid-sized companies have continuous strategic and operational challenges, but traditional consulting procurement creates massive friction:</p>
+                        <ul>
+                            <li>4-8 weeks for RFPs, proposals, negotiations each time</li>
+                            <li>Budget approval battles for each new project</li>
+                            <li>Repeated consultant onboarding and context-building</li>
+                            <li>No flexibility to pivot as priorities shift</li>
+                        </ul>
+                    </div>
+
+                    <div class="box">
+                        <h3><span class="icon solution">✓</span> The Solution</h3>
+                        <p>Monthly or quarterly subscription providing flexible allocation of consulting capacity deployed on-demand throughout the year:</p>
+                        <ul>
+                            <li><strong>Budget predictability:</strong> Fixed monthly cost</li>
+                            <li><strong>Zero friction:</strong> No repeated procurement</li>
+                            <li><strong>Speed:</strong> Activate within 48 hours</li>
+                            <li><strong>Flexibility:</strong> Pivot specialization month-to-month</li>
+                        </ul>
+                        <p style="margin-top: 1rem;">Companies subscribe to monthly consulting capacity tiers, getting pre-allocated consultant days they can deploy flexibly across different specializations and priorities as needs evolve. Unused days roll over (with limits), creating a "consulting insurance" model where expertise is always available when needed.</p>
+                        <p style="margin-top: 1rem;">This transforms consulting from a project-by-project procurement nightmare into a predictable operating expense with the agility to pivot as business priorities shift—no contracts to renegotiate, no new searches, no repeated onboarding.</p>
+                    </div>
+                </div>
+
+                <h4 style="font-size: 1.8rem; margin: 3rem 0 2rem 0; text-align: center; color: var(--secondary);">The Three Subscription Tiers</h4>
+
+                <div class="feature-grid">
+                    <div class="pricing-tier">
+                        <h4>💼 Strategic Advisor</h4>
+                        <p style="margin: 1rem 0;"><strong>For:</strong> Smaller mid-sized companies (500-650 employees)</p>
+                        <p><strong>Includes:</strong> 4 consultant days/month, flexible specialist selection</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8; margin: 1rem 0;">Unused days roll over for 2 months (max 8 days banked)</p>
+                        <div class="price">€6K<span style="font-size: 1rem;">/mo</span></div>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">€1,500/day equivalent (25% discount)</p>
+                    </div>
+
+                    <div class="pricing-tier" style="border-color: var(--secondary); transform: scale(1.05);">
+                        <span class="badge" style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%);">MOST POPULAR</span>
+                        <h4>🚀 Transformation Partner</h4>
+                        <p style="margin: 1rem 0;"><strong>For:</strong> Companies executing long-term change</p>
+                        <p><strong>Includes:</strong> 10 days/month, 1-2 specialists, dedicated account manager</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8; margin: 1rem 0;">Quarterly roadmap health checks, max 15 days banked</p>
+                        <div class="price">€14K<span style="font-size: 1rem;">/mo</span></div>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">€1,400/day equivalent (30% discount)</p>
+                    </div>
+
+                    <div class="pricing-tier">
+                        <h4>⭐ Enterprise Flex</h4>
+                        <p style="margin: 1rem 0;"><strong>For:</strong> Complex, multi-workstream initiatives (850+ employees)</p>
+                        <p><strong>Includes:</strong> 20 days/month, up to 3 concurrent consultants, Fractional CSO</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8; margin: 1rem 0;">Priority access to elite talent, max 30 days banked</p>
+                        <div class="price">€26K<span style="font-size: 1rem;">/mo</span></div>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">€1,300/day equivalent (35% discount)</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 3rem;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">🏔️ Example: Flexible Continuity</h4>
+                    <p><strong>Scenario:</strong> "Alpine Manufacturing" (780 employees) enters 18-month digital transformation but fears rigidity of traditional contracts.</p>
+                    <p><strong>Execution:</strong> They choose Tier 2 (€14K/mo). Over 14 months, they rotate specialists (Digital Strategy → ERP → Data Analytics) and "bank" unused days during quiet periods.</p>
+                    <p><strong>Result:</strong> In final phase, they deploy banked surge of 15 days for intensive training. Complete transformation saving ~€100K vs. ad-hoc pricing, retaining institutional knowledge.</p>
+                </div>
+
+                <h4 style="font-size: 1.8rem; margin: 3rem 0 2rem 0; text-align: center; color: var(--secondary);">Business Model Advantages</h4>
+
+                <div class="problem-solution">
+                    <div class="box" style="background: linear-gradient(135deg, rgba(0, 201, 167, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);">
+                        <h3>For Clients</h3>
+                        <ul>
+                            <li>Budget predictability (fixed monthly cost)</li>
+                            <li>Reduced friction (no repeated procurement)</li>
+                            <li>Speed (activate within 48 hours)</li>
+                            <li>Flexibility (pivot specialization monthly)</li>
+                            <li>Relationship depth (institutional knowledge builds)</li>
+                        </ul>
+                    </div>
+
+                    <div class="box" style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);">
+                        <h3>For Consultport</h3>
+                        <ul>
+                            <li>Recurring revenue (predictable MRR)</li>
+                            <li>Higher LTV (12-18 mo avg vs. 3-4 mo projects)</li>
+                            <li>Better utilization (easier calendar planning)</li>
+                            <li>Reduced sales cycle (renewals easier than acquisition)</li>
+                            <li>Expansion revenue (Tier 1 → Tier 2 upsells)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Pitch Section (Results-Based Pricing) -->
+    <section class="pitch-section" id="pitch">
+        <div class="pitch-container">
+            <div class="section-header">
+                <span class="badge">FOUNDER PITCH</span>
+                <h2 style="color: var(--light);">Results-Based Pricing Pilot</h2>
+                <p style="color: var(--light);">The Most Promising Initiative: Transforming "Hours Billed" to "Value Delivered"</p>
+            </div>
+
+            <div class="quote scroll-fade">
+                "We can be 'The platform where consultants bet on their results.' That's not a feature—it's an identity. It's the story journalists write. It's what clients remember. It's the moat competitors cannot cross."
+            </div>
+
+            <div class="problem-solution" style="margin-top: 3rem;">
+                <div class="box scroll-fade">
+                    <h3><span class="icon problem">💸</span> The Trust Deficit</h3>
+                    <p>Mid-sized companies face a profound trust deficit with consulting. Every CFO has war stories:</p>
+                    <ul>
+                        <li>Paid €75K for a beautiful strategy deck that sits on a shelf</li>
+                        <li>Hired an "expert" who delivered recommendations the team already knew</li>
+                        <li>Watched consultants extend projects indefinitely to maximize billable hours</li>
+                    </ul>
+                    <div class="highlight-box" style="margin-top: 1rem;">
+                        <p><strong>Core Issue:</strong> Incentive misalignment. Traditional time-based billing rewards consultants for hours worked, not results achieved.</p>
+                    </div>
+                </div>
+
+                <div class="box scroll-fade">
+                    <h3><span class="icon solution">🎯</span> The Revolutionary Model</h3>
+                    <p>Launch a pilot program where consultants are compensated based on <strong>verified business outcomes</strong> rather than time spent.</p>
+                    <p style="margin-top: 1rem;"><strong>Structure:</strong> Clients pay a reduced base fee covering consultant time, plus a success-based bonus tied to measurable results (cost savings, revenue growth, operational improvements).</p>
+                    <div class="highlight-box" style="margin-top: 1rem; background: linear-gradient(135deg, rgba(0, 201, 167, 0.2) 0%, rgba(0, 212, 255, 0.2) 100%);">
+                        <p><strong>Impact:</strong> The conversation shifts from "What if this doesn't work?" to "When this works, I'll be thrilled to pay you."</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 2rem; margin: 3rem 0 2rem 0; text-align: center;">Three Pilot Project Categories</h3>
+
+            <div class="feature-grid scroll-fade">
+                <div class="feature-item" style="background: rgba(255, 107, 53, 0.1); border-left-color: var(--accent);">
+                    <h4>💰 Cost Reduction Projects</h4>
+                    <p><strong>Focus:</strong> Procurement, logistics, or overhead reduction (8-12 weeks)</p>
+                    <p><strong>Pricing:</strong> Reduced Base Fee + % of Verified Year 1 Savings</p>
+                    <p><strong>Safeguards:</strong> Cap (max fee) + Floor (min fee)</p>
+                </div>
+
+                <div class="feature-item" style="background: rgba(0, 201, 167, 0.1); border-left-color: var(--success);">
+                    <h4>📈 Revenue Growth in New Markets</h4>
+                    <p><strong>Focus:</strong> GTM strategy and execution for new territory entry (10-14 weeks)</p>
+                    <p><strong>Pricing:</strong> Reduced Base Fee + % of Attributed Year 1 Revenue</p>
+                    <p><strong>Measurement:</strong> Revenue verified via CRM data 12 months post-launch</p>
+                </div>
+
+                <div class="feature-item" style="background: rgba(0, 102, 255, 0.1); border-left-color: var(--primary);">
+                    <h4>⚙️ Operational Performance</h4>
+                    <p><strong>Focus:</strong> Increasing manufacturing output or utilization (10-12 weeks)</p>
+                    <p><strong>Pricing:</strong> Reduced Base Fee + Bonus per sustained unit improvement</p>
+                    <p><strong>Measurement:</strong> 3-month stabilization period post-implementation</p>
+                </div>
+            </div>
+
+            <div class="highlight-box scroll-fade" style="margin-top: 3rem; border-left-color: var(--accent);">
+                <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">📊 Example: Shared Risk & Reward</h4>
+                <p><strong>Scenario:</strong> Mid-sized distributor spending €4.5M on logistics engages consultant for Cost Reduction Project.</p>
+                <p><strong>Deal Structure:</strong> Base fee €35K + Success Bonus (% of Year 1 savings)</p>
+                <p><strong>Result:</strong> Consultant optimizes routes and contracts, achieving €420K in verified savings.</p>
+                <p><strong>Payment:</strong> Base + Bonus = Total €85K</p>
+                <p style="margin-top: 1rem; font-size: 1.3rem;"><strong>Client ROI:</strong> <span style="color: var(--success); font-size: 1.5rem;">4.9x</span> | <strong>Net Year 1 Benefit:</strong> <span style="color: var(--success); font-size: 1.5rem;">€335K</span></p>
+            </div>
+
+            <h3 style="font-size: 2rem; margin: 4rem 0 2rem 0; text-align: center;">Why This Creates an Unassailable Moat</h3>
+
+            <div class="challenges-grid scroll-fade">
+                <div class="challenge-card">
+                    <div class="emoji">🚫</div>
+                    <h3>No One Else Can Do This</h3>
+                    <p><strong>Traditional firms can't:</strong> Partnership structures require guaranteed revenue. If McKinsey offered performance-based to one client, every client would demand it—their entire model collapses.</p>
+                    <p style="margin-top: 1rem;"><strong>Other platforms can't:</strong> Upwork/Fiverr lack quality vetting and mediation infrastructure.</p>
+                    <p style="margin-top: 1rem;"><strong>We can:</strong> Pre-vetted elite consultants + platform verification infrastructure + neutral mediation capability.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="emoji">📊</div>
+                    <h3>Compounding Data Advantage</h3>
+                    <p>Every performance-based project generates proprietary insights:</p>
+                    <ul style="margin-top: 0.5rem;">
+                        <li>Which consultants consistently deliver?</li>
+                        <li>Which project types succeed most?</li>
+                        <li>What predicts outcomes?</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>After 50 projects:</strong> We know more about consulting outcomes than anyone.</p>
+                    <p><strong>After 150:</strong> This becomes impenetrable—competitors would need years to catch up.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="emoji">💎</div>
+                    <h3>The Economics Work for Everyone</h3>
+                    <p><strong>Clients:</strong> Only pay significant fees if results materialize. Risk transferred to consultant.</p>
+                    <p style="margin-top: 1rem;"><strong>Consultants:</strong> Earn 15-35% more when delivering results. "I bet on my work" attracts quality-conscious clients.</p>
+                    <p style="margin-top: 1rem;"><strong>Consultport:</strong> Higher project values (€80K vs. €60K), revolutionary positioning, PR goldmine, data moat.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="emoji">🎯</div>
+                    <h3>First-Mover Advantage is Massive</h3>
+                    <p><strong>Market Conditions:</strong> Economic uncertainty makes CFOs risk-averse. "Pay for performance" booming across industries.</p>
+                    <p style="margin-top: 1rem;"><strong>Competitive Window:</strong> No major platform doing this at scale. Takes competitors 18-24 months minimum to respond.</p>
+                    <p style="margin-top: 1rem;"><strong>Brand Positioning:</strong> "The platform where consultants bet on results" is the story that spreads.</p>
+                </div>
+            </div>
+
+            <div class="cta-section" style="margin-top: 4rem; padding: 4rem 2rem; background: linear-gradient(135deg, rgba(255, 107, 53, 0.2) 0%, rgba(0, 102, 255, 0.2) 100%);">
+                <h3 style="font-size: 2.5rem; margin-bottom: 2rem;">The Ask</h3>
+                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem;">Approval to launch 3-month pilot with €24K investment:</p>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                        <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">Investment Breakdown</h4>
+                        <ul style="font-size: 1.1rem;">
+                            <li>Legal: €5K (contract templates, dispute framework)</li>
+                            <li>Product: €6K (verification dashboard MVP)</li>
+                            <li>Operations: €10K (Project manager 40% time)</li>
+                            <li>Marketing: €3K (case study production)</li>
+                        </ul>
+                        <p style="font-size: 1.5rem; font-weight: 600; margin-top: 1rem; text-align: center; color: var(--accent);">Total: €24K</p>
+                    </div>
+
+                    <div style="background: rgba(0, 201, 167, 0.2); padding: 2rem; border-radius: 15px;">
+                        <h4 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--success);">Expected Return (if successful)</h4>
+                        <ul style="font-size: 1.1rem;">
+                            <li>3-5 pilot projects proving model viability</li>
+                            <li>Break-even after 1-2 projects completed</li>
+                            <li>3-4 case studies proving model works</li>
+                            <li>Revolutionary positioning differentiating us for years</li>
+                            <li>Foundation for competitive moat through data</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p style="font-size: 1.3rem; margin-top: 3rem; font-style: italic;">"After Month 3, we evaluate against success criteria. If we hit targets, scale systematically. If not, we've learned €24K tuition for potential industry disruption."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KPIs Section -->
+    <section id="kpis">
+        <div class="section-header scroll-fade">
+            <h2>Measurement of Success</h2>
+            <p>Clear KPIs and targets to evaluate pilot performance</p>
+        </div>
+
+        <h3 style="font-size: 2rem; text-align: center; margin-bottom: 2rem; color: var(--secondary);">Pilot Phase KPIs (Months 1-3)</h3>
+
+        <div class="kpi-grid scroll-fade">
+            <div class="kpi-card">
+                <div class="kpi-value">65%+</div>
+                <div class="kpi-label">Client ROI Achievement</div>
+                <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">Achieve minimum 4x ROI</p>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-value">70%+</div>
+                <div class="kpi-label">Client Satisfaction</div>
+                <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">Would repeat performance-based engagement</p>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-value">60%+</div>
+                <div class="kpi-label">Consultant Satisfaction</div>
+                <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">Willing to repeat, see earning potential</p>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-value">&lt;25%</div>
+                <div class="kpi-label">Dispute Rate</div>
+                <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">Projects requiring mediation</p>
+            </div>
+        </div>
+
+        <h3 style="font-size: 2rem; text-align: center; margin: 4rem 0 2rem 0; color: var(--secondary);">Scale Phase KPIs (Months 4-12)</h3>
+
+        <div class="problem-solution scroll-fade">
+            <div class="box">
+                <h3>Growth Metrics</h3>
+                <div style="margin-top: 1rem;">
+                    <div style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <span>Performance-Based Projects</span>
+                        <span><strong style="color: var(--secondary);">12 (Mo 6)</strong> → <strong style="color: var(--success);">22 (Mo 12)</strong></span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem 0;">
+                        <span>Consultant Pool</span>
+                        <span><strong style="color: var(--secondary);">20 active</strong> → <strong style="color: var(--success);">30 active</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Strategic Metrics</h3>
+                <div style="margin-top: 1rem;">
+                    <div style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <span>Brand Awareness</span>
+                        <span><strong style="color: var(--success);">5+ media mentions</strong></span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <span>Sales Differentiation</span>
+                        <span><strong style="color: var(--success);">Primary in 50% of pitches</strong></span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem 0;">
+                        <span>Data Points Collected</span>
+                        <span><strong style="color: var(--success);">120+ for pattern recognition</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="font-size: 2rem; text-align: center; margin: 4rem 0 2rem 0; color: var(--secondary);">Decision Framework</h3>
+
+        <div class="feature-grid scroll-fade">
+            <div class="feature-item" style="background: rgba(0, 201, 167, 0.1); border-left-color: var(--success);">
+                <h4>✅ Green Light - Scale</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>65%+ client ROI achievement</li>
+                    <li>70%+ client satisfaction</li>
+                    <li>60%+ consultant satisfaction</li>
+                    <li>Below 25% dispute rate</li>
+                    <li>3+ projects completed</li>
+                </ul>
+                <p style="margin-top: 1rem; font-weight: 600;">→ Proceed to scale, invest in marketing, target 12 projects by Month 12</p>
+            </div>
+
+            <div class="feature-item" style="background: rgba(255, 193, 7, 0.1); border-left-color: #ffc107;">
+                <h4>⚠️ Yellow Light - Iterate</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>45-65% client ROI (positive but below target)</li>
+                    <li>55-70% satisfaction</li>
+                    <li>25-35% dispute rate</li>
+                </ul>
+                <p style="margin-top: 1rem; font-weight: 600;">→ Extend pilot 2 months, refine contracts, test adjustments</p>
+            </div>
+
+            <div class="feature-item" style="background: rgba(255, 107, 53, 0.1); border-left-color: var(--accent);">
+                <h4>❌ Red Light - Pivot</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Below 45% client ROI</li>
+                    <li>Below 55% satisfaction</li>
+                    <li>Above 35% dispute rate</li>
+                    <li>Fewer than 2 projects completed</li>
+                </ul>
+                <p style="margin-top: 1rem; font-weight: 600;">→ Pause, conduct post-mortem, significant model adjustment or discontinuation</p>
+            </div>
+        </div>
+
+        <div class="highlight-box scroll-fade" style="margin-top: 3rem;">
+            <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">📊 Tracking Systems</h4>
+            <p style="margin-bottom: 2rem; opacity: 0.9;">Comprehensive monitoring infrastructure to capture insights, track progress, and build the data moat that becomes our competitive advantage.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 212, 255, 0.15) 100%); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(0, 212, 255, 0.3);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📈</div>
+                    <strong style="font-size: 1.2rem; color: var(--secondary);">Project Dashboard</strong>
+                    <p style="margin-top: 0.5rem; opacity: 0.9;">Real-time tracking of baseline metrics, targets, progress milestones, and verification status. Accessible to client, consultant, and Consultport PM with weekly automated updates ensuring transparency and alignment.</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(0, 201, 167, 0.15) 0%, rgba(0, 212, 255, 0.15) 100%); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(0, 201, 167, 0.3);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📋</div>
+                    <strong style="font-size: 1.2rem; color: var(--success);">Automated Post-Project Surveys</strong>
+                    <p style="margin-top: 0.5rem; opacity: 0.9;">Sent 7 days after completion to capture fresh insights. Measures satisfaction (1-5), ROI achieved, willingness to repeat, and NPS. Target 80%+ response rate to build statistical significance.</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 140, 66, 0.15) 100%); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255, 107, 53, 0.3);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
+                    <strong style="font-size: 1.2rem; color: var(--accent);">Weekly Operations Reports</strong>
+                    <p style="margin-top: 0.5rem; opacity: 0.9;">Compiled every Friday by PM covering status updates, completions, disputes, and pipeline. Reviewed in weekly team standup to ensure rapid issue resolution and knowledge sharing across projects.</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 212, 255, 0.15) 100%); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(0, 212, 255, 0.3);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📉</div>
+                    <strong style="font-size: 1.2rem; color: var(--secondary);">Monthly Executive Dashboard</strong>
+                    <p style="margin-top: 0.5rem; opacity: 0.9;">High-level KPI summary with red/yellow/green indicators, revenue generated, success trends, and key learnings. Includes forward pipeline visibility for next 3 months to inform resource planning.</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(0, 201, 167, 0.15) 0%, rgba(0, 212, 255, 0.15) 100%); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(0, 201, 167, 0.3);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">👤</div>
+                    <strong style="font-size: 1.2rem; color: var(--success);">Consultant Performance Profiles</strong>
+                    <p style="margin-top: 0.5rem; opacity: 0.9;">Individual tracking of projects completed, target achievement %, client satisfaction, and disputes. Used for future matching, recognition, coaching, and tier assignment—building our consultant quality database.</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 140, 66, 0.15) 100%); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255, 107, 53, 0.3);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔬</div>
+                    <strong style="font-size: 1.2rem; color: var(--accent);">Category Analytics</strong>
+                    <p style="margin-top: 0.5rem; opacity: 0.9;">Aggregate by project type to identify success rates, average bonuses, and common failure patterns. Monthly review optimizes category parameters and builds predictive models for outcome probability.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.05); border-radius: 10px; border-left: 4px solid var(--primary);">
+                <p style="font-size: 1.1rem;"><strong>🎯 The Data Moat:</strong> Every project generates proprietary insights about what predicts success. After 50 projects, we know more about consulting outcomes than anyone in the industry. After 150, this knowledge becomes an impenetrable competitive advantage—we can predict success rates, price risk accurately, and guide clients to high-probability wins better than any competitor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Timeline -->
+    <section id="timeline">
+        <div class="section-header scroll-fade">
+            <h2>3-Month Implementation Plan</h2>
+            <p>From setup to launch to optimization - a pragmatic roadmap</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item scroll-fade">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">🏗️ MONTH 1: Setup Phase</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Objective:</strong> Build foundation (legal, operations, recruitment)</p>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
+                            <strong style="color: var(--secondary);">Week 1: Foundation & Team Assembly</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.95rem;">
+                                <li>Assemble team: Project Lead, Legal, Product Manager, Operations Coordinator</li>
+                                <li>Draft performance-based contract templates (3 categories)</li>
+                                <li>Document verification dashboard requirements</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
+                            <strong style="color: var(--secondary);">Week 2: Contracts & Recruitment Launch</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.95rem;">
+                                <li>Finalize legal templates with category-specific variations</li>
+                                <li>Outreach to 30 top network consultants</li>
+                                <li>Engineering begins dashboard MVP</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
+                            <strong style="color: var(--secondary);">Week 3: Consultant Onboarding & Client Pipeline</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.95rem;">
+                                <li>Conduct 20 consultant conversations, engage 6-10 committed</li>
+                                <li>Host onboarding webinar covering mechanics, contracts, tools</li>
+                                <li>Identify 25 target clients with strong relationships</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 10px;">
+                            <strong style="color: var(--secondary);">Week 4: Client Matching & Pre-Launch</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.95rem;">
+                                <li>Secure 3-5 pilot client commitments</li>
+                                <li>Detailed scoping calls, establish baselines, match consultants</li>
+                                <li>Dashboard MVP completed and tested</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 1rem; background: rgba(0, 201, 167, 0.1);">
+                        <strong>✅ Month 1 Success:</strong> 6-10 consultants engaged, 3-5 clients committed, contracts drafted, dashboard live, processes documented
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item scroll-fade">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">🚀 MONTH 2: Launch Phase</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Objective:</strong> Execute first cohort with close monitoring</p>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
+                            <strong style="color: var(--secondary);">Week 5: Project Kickoffs</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.95rem;">
+                                <li>Kickoff meetings for each project</li>
+                                <li>Input baselines into dashboard, document start dates</li>
+                                <li>Establish monitoring: weekly consultant check-ins, bi-weekly client check-ins</li>
+                                <li>Consultants begin work</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
+                            <strong style="color: var(--secondary);">Weeks 6-7: Mid-Project Monitoring</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.95rem;">
+                                <li>Weekly consultant check-ins (15-30 min)</li>
+                                <li>Bi-weekly client check-ins (15 min)</li>
+                                <li>Address disputes immediately with PM mediation</li>
+                                <li>Gather dashboard feedback for UX fixes</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 10px;">
+                            <strong style="color: var(--secondary);">Week 8: First Completions</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.95rem;">
+                                <li>Shorter projects (8-10 weeks) may complete</li>
+                                <li>Begin outcome measurement (varies by category)</li>
+                                <li>Continue monitoring in-progress projects</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 1rem; background: rgba(0, 212, 255, 0.1);">
+                        <strong>📊 Month 2 Focus:</strong> Tight execution monitoring, rapid issue resolution, early learnings documentation
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item scroll-fade">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">📈 MONTH 3: Optimize Phase</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Objective:</strong> Complete projects, gather data, prepare for scale</p>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
+                            <strong style="color: var(--secondary);">Weeks 9-10: Completions & Verification</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.95rem;">
+                                <li>Longer projects (10-12 weeks) complete</li>
+                                <li>Follow contracted verification methodologies</li>
+                                <li>Document outcomes in dashboard, calculate bonuses</li>
+                                <li>Process payments within 7 days of verification</li>
+                                <li>Send post-project surveys (target 80%+ response)</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
+                            <strong style="color: var(--secondary);">Week 11: Analysis & Refinement</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.95rem;">
+                                <li>Compile pilot data: completions, achievements, satisfaction, disputes</li>
+                                <li>Create performance profiles per consultant</li>
+                                <li>Update contract templates and operations playbook</li>
+                                <li>Version 2.0 ready for scale</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 10px;">
+                            <strong style="color: var(--secondary);">Week 12: Go/No-Go Decision</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.95rem;">
+                                <li>Evaluate against success criteria</li>
+                                <li>Apply decision framework (Green/Yellow/Red)</li>
+                                <li>If successful: Founder approval and budget for scale</li>
+                                <li>Create marketing assets: case studies, PR campaign</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 1rem; background: rgba(0, 201, 167, 0.1);">
+                        <strong>🎯 Month 3 Success:</strong> 5-7 completed projects, 65%+ ROI achievement, 2-3 compelling case studies, refined processes, clear conviction the model works
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-fade" style="margin-top: 4rem;">
+            <h3 style="font-size: 2rem; text-align: center; margin-bottom: 2rem; color: var(--secondary);">Post-Pilot Roadmap</h3>
+            
+            <div class="feature-grid">
+                <div class="pricing-tier">
+                    <h4>Months 4-6: Initial Scale</h4>
+                    <p style="margin: 1rem 0;">Budget: €25K</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Target: 5-8 additional projects</li>
+                        <li>Expand consultant network 10 → 20</li>
+                        <li>Launch marketing: case studies, PR, thought leadership</li>
+                        <li>Enhanced dashboard features</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-tier">
+                    <h4>Months 7-12: Market Penetration</h4>
+                    <p style="margin: 1rem 0;">Full rollout</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Performance-based becomes standard offering</li>
+                        <li>20% of suitable projects use model</li>
+                        <li>15+ engaged consultants in program</li>
+                        <li>Clear competitive differentiation</li>
+                        <li>Industry media coverage</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-tier">
+                    <h4>Year 2: Market Leadership</h4>
+                    <p style="margin: 1rem 0;">Category definition</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>"The Performance-Based Consulting Platform"</li>
+                        <li>Outcome prediction capabilities from data</li>
+                        <li>Consultant performance tiers and track records</li>
+                        <li>25-30% project penetration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box scroll-fade" style="margin-top: 3rem; border-left-color: var(--accent);">
+            <h4 style="font-size: 1.8rem; margin-bottom: 1rem; text-align: center;">⚠️ Risk Mitigation Strategies</h4>
+            
+            <div class="problem-solution" style="margin-top: 2rem;">
+                <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 15px;">
+                    <h4 style="color: var(--accent);">Risk: Can't Engage Enough Consultants</h4>
+                    <p style="margin-top: 0.5rem;"><strong>Early Warning:</strong> Fewer than 5 committed by Week 3</p>
+                    <p style="margin-top: 0.5rem;"><strong>Mitigation:</strong></p>
+                    <ul style="margin-top: 0.5rem;">
+                        <li>Adjust pitch: emphasize higher earnings</li>
+                        <li>Increase base fees to reduce risk</li>
+                        <li>Offer "founding consultant" benefits</li>
+                        <li>Expand outreach beyond existing network</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 15px;">
+                    <h4 style="color: var(--accent);">Risk: Can't Secure Enough Clients</h4>
+                    <p style="margin-top: 0.5rem;"><strong>Early Warning:</strong> Fewer than 2 committed by Week 4</p>
+                    <p style="margin-top: 0.5rem;"><strong>Mitigation:</strong></p>
+                    <ul style="margin-top: 0.5rem;">
+                        <li>Offer pilot incentive: 20% off base fee</li>
+                        <li>Target existing Consultport clients</li>
+                        <li>Senior leadership personal calls</li>
+                        <li>"Invite-only" exclusivity positioning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 15px; margin-top: 1rem;">
+                <h4 style="color: var(--accent);">Risk: Dashboard Development Delays</h4>
+                <p style="margin-top: 0.5rem;"><strong>Early Warning:</strong> MVP not on track by Week 3</p>
+                <p style="margin-top: 0.5rem;"><strong>Mitigation:</strong></p>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Cut non-essential features</li>
+                    <li>Use existing platform infrastructure</li>
+                    <li>Daily engineering check-ins Week 3-4</li>
+                </ul>
+                <p style="margin-top: 0.5rem;"><strong>Contingency:</strong> Use manual tracking (Google Sheets) temporarily. Launch pilot on time (Week 5), implement dashboard Week 6-7.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="cta-section">
+        <div class="section-header">
+            <h2>The Bottom Line</h2>
+            <p style="color: var(--light);">A clear path to transforming Consultport's market position</p>
+        </div>
+
+        <div class="stats-row" style="margin: 3rem 0;">
+            <div class="stat">
+                <span class="stat-number">€24K</span>
+                <span class="stat-label">3-Month Pilot Investment</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">3-5</span>
+                <span class="stat-label">Performance-Based Projects</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">1st Ever</span>
+                <span class="stat-label">Performance-Based Consulting</span>
+            </div>
+        </div>
+
+        <div style="max-width: 900px; margin: 3rem auto; text-align: left; background: rgba(255, 255, 255, 0.1); padding: 3rem; border-radius: 20px;">
+            <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">Final Recommendation</h3>
+            
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">In <strong>3 months</strong> and <strong>€24K</strong>, we'll know if performance-based pricing can transform Consultport's positioning and create a lasting competitive advantage.</p>
+            
+            <div style="background: var(--gradient); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+                <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">📋 Implementation Priorities</h4>
+                <ul style="font-size: 1.1rem;">
+                    <li><strong>Month 1-3:</strong> Execute 3-5 project pilot (€24K investment)</li>
+                    <li><strong>Month 3:</strong> Go/No-Go decision based on clear success criteria</li>
+                    <li><strong>Month 4-6:</strong> Scale to 6-10 projects if successful (€25K additional)</li>
+                    <li><strong>Month 7-12:</strong> Full rollout (12-14 projects)</li>
+                </ul>
+            </div>
+
+            <p style="font-size: 1.2rem; margin-top: 2rem; line-height: 1.8;">This approach <strong>de-risks</strong> through small pilot before major investment, <strong>proves</strong> revolutionary concept with real data, creates foundation for <strong>sustainable competitive advantage</strong>, and positions Consultport as <strong>category leader</strong> - "consultants who bet on results."</p>
+        </div>
+
+        <div class="quote" style="margin-top: 3rem;">
+            Let's transform Consultport into "the platform where consultants bet on their results."
+        </div>
+
+        <div style="margin-top: 3rem; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p style="font-size: 1rem; opacity: 0.8; text-align: center;">
+                <strong>Case Study prepared by Theo Sayad for EIR Application</strong><br>
+                Strategic analysis of mid-market consulting opportunities<br>
+                Focus: Growth strategy, innovation, and competitive differentiation
+            </p>
+        </div>
+    </section>
+
+    <script>
+    // Tab switching functionality
+    function switchTab(tabId) {
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        // Remove active class from all buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Show selected tab content
+        document.getElementById(tabId).classList.add('active');
+        
+        // Add active class to clicked button
+        event.target.classList.add('active');
+    }
+
+    // Scroll animation
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-fade').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>
